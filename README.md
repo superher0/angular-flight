@@ -7,8 +7,8 @@ the general public.
 # Usage
 
 ```
-    $ npm install
-    $ node app
+$ npm install
+$ node app
 ```
    
 The server will then be running on port 3000.  Open 
