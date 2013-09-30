@@ -17,6 +17,7 @@
 		// Auto complete input with list of cities
 		$scope.listCity = function(query, process) {
 			$http.get('/api/v1/suggest/position/en/name/'+query).success(function(data) {
+			// $http.get('_sandbox/ang/public/data.php?'+query).success(function(data) {
 				
 				var results = data.results, cities = [];
 
