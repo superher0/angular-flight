@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     // Task configuration.
-   concat: {
+    concat: {
       css: {
         src: ['public/css/bootstrap.min.css', 'public/css/bootstrap-datepicker.css', 'public/css/base.css'],
         dest: 'public/css/all.css'
@@ -16,6 +16,9 @@ module.exports = function(grunt) {
     },
     cssmin: {
       combine: {
+        options: {
+          keepSpecialComments: 0,
+        },
         files: {
           'public/css/all.css': 'public/css/all.css'
         }
