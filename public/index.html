@@ -1,20 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="goeuro">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Angular Test</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/base.css"> -->
+    <link rel="stylesheet" href="css/all.css">
   </head>
-  <body>
-    <p>Hello world! This is HTML5 Boilerplate.</p>
+  <body ng-controller="SearchCtrl">
 
+  <h1>Flight Schedule</h1>
+
+    <p>Search a route:</p>
+
+    <form name="searchForm" novalidate>
+
+      <!-- From city must be required -->
+      <div class="controls">
+        <input type="text" name="fromCity" required ng-model="flight.from" bs-typeahead="listCity" placeholder="From City" autocomplete="off">
+        <!-- <span class="error" ng-show="searchForm.fromCity.$dirty && searchForm.fromCity.$error.required">Origin city is required.</span> -->
+        <div class="input-help">
+          <h4>Origin city is required.</h4>
+        </div>      
+        <input type="hidden" ng-model="flight.id_from">
+      </div>
+      
+      <!-- To city must be required -->
+      <div class="controls">
+      <input type="text" name="toCity" required ng-model="flight.to" bs-typeahead="listCity" placeholder="To City" autocomplete="off">
+        <div class="input-help">
+          <h4>Destination city is required.</h4>
+        </div> 
+        <input type="hidden" ng-model="flight.id_to">
+      </div>     
+
+      <!-- Date must be required and in the correct date format -->
+      <div class="controls">
+        <input type="text" name="date" class="immediate-help" date-validate required ng-model="flight.date" data-date-format="dd/mm/yyyy" bs-datepicker placeholder="Departure Date" autocomplete="off">
+        <div class="input-help">
+          <h4>Departure date must meet the following requirements:</h4>
+          <ul>
+            <li ng-class="dateRequired">Must not be empty</li>
+            <li ng-class="dateFormat">Must follow format <strong>DD/MM/YYYY</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <!-- A "search" button should be available when the form has been completely filled out -->
+        <button type="button" ng-disabled="searchForm.$invalid" ng-click="submit(flight, searchForm)" name="submit" class="btn btn-primary" bs-button>Search</button>
+        <div class="controls" ng-show="searchForm.$invalid">All fields must be filled-in.</div>
+      </div>
+    </form>
+
+    <div ng-show="result">{{result}}</div>
+    
+    <script src="js/all.js"></script>
+    
+    <!--
     <script src="js/jquery.min.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/angular-strap.min.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/app.js"></script>
+    -->
   </body>
 </html>

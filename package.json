@@ -6,8 +6,13 @@
         "start": "node app.js"
     },
     "dependencies": {
-        "express": "3.3.5",
-        "jade": "*",
-        "http-proxy": "*"
+        "express"             : "3.3.5",
+        "jade"                : "*",
+        "http-proxy"          : "*",
+        "grunt"               : "*",
+        "grunt-contrib-watch" : "*",
+        "grunt-contrib-concat": "*",
+        "grunt-contrib-cssmin": "*",
+        "grunt-contrib-uglify": "*"
     }
 }
