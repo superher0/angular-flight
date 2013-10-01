@@ -86,8 +86,8 @@
 		DD   = d.getDate();
 		MM   = d.getMonth() + 1; // Months are zero based
 		YYYY = d.getFullYear();
-		DD > 10 || ( DD = '0' + DD );
-		MM > 10 || ( MM = '0' + MM );
+		DD >= 10 || ( DD = '0' + DD );
+		MM >= 10 || ( MM = '0' + MM );
 		return DD + "/" + MM + "/" + YYYY;
 	}
 
