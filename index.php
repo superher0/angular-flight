@@ -1,0 +1,1 @@
+<a href="public/index.html">Go to public</a>
