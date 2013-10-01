@@ -14,3 +14,8 @@ $ node app
 The server will then be running on port 3000.  Open 
 http://localhost:3000/ to see the file public/index.html.  Go from
 there.
+
+===============================================
+See the live demo at:
+
+http://calm-ocean-7172.herokuapp.com

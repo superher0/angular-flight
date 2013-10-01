@@ -3,6 +3,7 @@
 	'use strict';
 
 	app.goeuro = angular.module('goeuro', ['$strap.directives']);
+	app.el['result'] = $('.result');
 
 	// Getting user's location may take 6-7 seconds. If user select cities before that, ordering by distance to user will be skipped
 	app.fn.getCurrentPosition();
@@ -17,14 +18,13 @@
 		// Auto complete input with list of cities
 		$scope.listCity = function(query, process) {
 			$http.get('/api/v1/suggest/position/en/name/'+query).success(function(data) {
-			// $http.get('_sandbox/ang/public/data.php?'+query).success(function(data) {
 				
 				var results = data.results, cities = [];
 
 	 			// Check if location has been fetched
 	 			if( app.userLatitude && app.userLongitude ) {
-	 				var location = [];
-	 				for (var i=0; i<results.length; i++) {
+	 				var location = [], len = results.length;
+	 				for (var i=0; i<len; i++) {
 						location[i]             = {};
 						location[i]["_id"]     	= results[i]._id;
 						location[i]["name"]     = results[i].name;
@@ -57,8 +57,8 @@
 
 		// Clicking on the "search" button should display a "Search is not yet implemented" message to the user.
 		$scope.submit = function(flight, searchForm) {
-			searchForm.$valid && ($scope.result = "Search is not yet implemented");
-			flight.date = app.fn.formattedDate(flight.date);
+			searchForm.$valid && (app.el['result'].html("Search is not yet implemented"));
+			flight.fdate = app.fn.formattedDate(flight.date);
 			console.log(flight);
 		}
 
