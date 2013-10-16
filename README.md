@@ -18,4 +18,4 @@ there.
 ===============================================
 See the live demo at:
 
-http://calm-ocean-7172.herokuapp.com
+http://angularjs1.herokuapp.com
